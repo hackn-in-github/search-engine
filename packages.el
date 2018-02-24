@@ -12,10 +12,8 @@
 ;; List of all packages to install and/or initialize. Built-in packages
 ;; which require an initialization must be listed explicitly in the list.
 (setq search-engine-packages
-  '(
-    engine-mode
-    ))
-(setq search-engine-alist
+      '(engine-mode)
+      search-engine-alist
       '((amazon
          :name "Amazon"
          :url "http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%%3Daps&field-keywords=%s")
