@@ -13,17 +13,17 @@
 
 * Description
 This layer does wonderful things:
-  - This is a fix for a bug in the "search-engine" layer of "Spacemacs".
-  - In addition, "migemo" is made available for narrowing down using "helm". The Japanese are delighted :-)
+  - This is a fix for a bug in the =search-engine= layer of "Spacemacs".
+  - In addition, =migemo= is made available for narrowing down using =helm=. The Japanese are delighted :-)
 ** Supported search engines
-  - Same as "search-engine" layer
+  - Same as =search-engine= layer
 
 * Install
-Place the "img" directory and the three files "README.org", "funcs.el", and "packages.el" in
-"~/.emacs.d/private/search-engine-revision" directory.
+Place the =img= directory and the three files =README.org=, =funcs.el=, and =packages.el= in
+=~/.emacs.d/private/search-engine-revision= directory.
 To use this configuration layer, add it to your =~/.spacemacs=. You will need to
 add =search-engine-revision= to the existing =dotspacemacs-configuration-layers= list in this file.
-In addition, it is necessary to be able to use "migemo", such as introducing the "japanese" layer.
+In addition, it is necessary to be able to use =migemo=, such as introducing the =japanese= layer.
 For example [[https://github.com/kenjimyzk/spacemacs-japanese][kenjimyzk/spacemacs-japanese]].
 
 * Key bindings
@@ -34,7 +34,7 @@ For example [[https://github.com/kenjimyzk/spacemacs-japanese][kenjimyzk/spacema
 
 * Customize it!
 
-In the "search-engine" layer, it was not possible to add a new search engine :-(
+In the =search-engine= layer, it was not possible to add a new search engine :-(
 Also if you want more search engines, just push them (do this in =dotspacemacs/user-config=)
 
 #+BEGIN_SRC emacs-lisp
