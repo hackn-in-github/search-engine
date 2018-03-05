@@ -1,16 +1,63 @@
-;;; packages.el --- search-engine Layer packages File for Spacemacs
+;;; packages.el --- search-engine-revision layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2012-2017 Sylvain Benner & Contributors
 ;;
-;; Author: Sylvain Benner <sylvain.benner@gmail.com>
+;; Author: Tooru Iijima <tooru@tooru-PC-LL550KG1B>
 ;; URL: https://github.com/syl20bnr/spacemacs
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; License: GPLv3
 
-;; List of all packages to install and/or initialize. Built-in packages
-;; which require an initialization must be listed explicitly in the list.
+;;; Commentary:
+
+;; See the Spacemacs documentation and FAQs for instructions on how to implement
+;; a new layer:
+;;
+;;   SPC h SPC layers RET
+;;
+;;
+;; Briefly, each package to be installed or configured by this layer should be
+;; added to `search-engine-revision-packages'. Then, for each package PACKAGE:
+;;
+;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
+;;   function `search-engine-revision/init-PACKAGE' to load and initialize the package.
+
+;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
+;;   define the functions `search-engine-revision/pre-init-PACKAGE' and/or
+;;   `search-engine-revision/post-init-PACKAGE' to customize the package as it is loaded.
+
+;;; Code:
+
+(defconst search-engine-revision-packages
+  '((search-engine :excluded t))
+  "The list of Lisp packages required by the search-engine-revision layer.
+
+Each entry is either:
+
+1. A symbol, which is interpreted as a package to be installed, or
+
+2. A list of the form (PACKAGE KEYS...), where PACKAGE is the
+    name of the package to be installed or loaded, and KEYS are
+    any number of keyword-value-pairs.
+
+    The following keys are accepted:
+
+    - :excluded (t or nil): Prevent the package from being loaded
+      if value is non-nil
+
+    - :location: Specify a custom installation location.
+      The following values are legal:
+
+      - The symbol `elpa' (default) means PACKAGE will be
+        installed using the Emacs package manager.
+
+      - The symbol `local' directs Spacemacs to load the file at
+        `./local/PACKAGE/PACKAGE.el'
+
+      - A list beginning with the symbol `recipe' is a melpa
+        recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
+
 (setq search-engine-packages
       '(engine-mode)
       search-engine-alist
@@ -79,3 +126,5 @@
         (let* ((cur-engine (car engine))
                (engine-url (plist-get (cdr engine) :url)))
           (eval `(defengine ,cur-engine ,engine-url)))))))
+
+;;; packages.el ends here

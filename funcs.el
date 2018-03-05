@@ -1,29 +1,15 @@
-;;; funcs.el --- search-engine Layer functions File for Spacemacs
-;;
-;; Copyright (c) 2012-2017 Sylvain Benner & Contributors
-;;
-;; Author: Sylvain Benner <sylvain.benner@gmail.com>
-;; URL: https://github.com/syl20bnr/spacemacs
-;;
-;; This file is not part of GNU Emacs.
-;;
-;;; License: GPLv3
-; migemo 対応にする(参考 http://syohex.hatenablog.com/entry/2015/10/10/171926)
 (with-eval-after-load "helm"
-  (defvar spacemacs//search-engine-source-with-migemo
-    (helm-build-sync-source "Search Engines"
-      :candidates (mapcar (lambda (engine)
-                            (cons (plist-get (cdr engine) :name)
-                                  (intern (format "engine/search-%S"
-                                                  (car engine)))))
-                          search-engine-alist)
-      :action (lambda (candidate) (call-interactively candidate))
-      :migemo t)))
-
-(defun spacemacs/helm-search-engine-select ()
-  "Set search engine to use with helm."
-  (interactive)
-  (helm :sources `(spacemacs//search-engine-source-with-migemo)))
+  (defun spacemacs/helm-search-engine-select ()
+    "Set search engine to use with helm."
+    (interactive)
+    (helm :sources (helm-build-sync-source "Search Engines Revision"
+                      :candidates (mapcar (lambda (engine)
+                                            (cons (plist-get (cdr engine) :name)
+                                                  (intern (format "engine/search-%S"
+                                                                  (car engine)))))
+                                          search-engine-alist)
+                      :action (lambda (candidate) (call-interactively candidate))
+                      :migemo t))))
 
 (defun spacemacs/ivy-search-engine-select ()
   "Set search engine to use with ivy."
