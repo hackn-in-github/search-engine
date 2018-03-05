@@ -19,6 +19,8 @@ This layer does wonderful things:
   - Same as "search-engine" layer
 
 * Install
+Place the "img" directory and the three files "README.org", "funcs.el", and "packages.el" in
+"~/.emacs.d/private/search-engine-revision" directory.
 To use this configuration layer, add it to your =~/.spacemacs=. You will need to
 add =search-engine-revision= to the existing =dotspacemacs-configuration-layers= list in this file.
 In addition, it is necessary to be able to use "migemo", such as introducing the "japanese" layer.
